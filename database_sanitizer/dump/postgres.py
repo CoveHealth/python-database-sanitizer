@@ -5,6 +5,7 @@ from __future__ import unicode_literals
 import codecs
 import re
 import subprocess
+import io
 
 from ..utils.postgres import decode_copy_value, encode_copy_value
 from ..config import PG_DUMP_DEFAULT_PARAMETERS
@@ -56,7 +57,7 @@ def sanitize(url, config):
     current_table_columns = None
     skip_table = False
 
-    for line in codecs.getreader("utf-8")(process.stdout):
+    for line in io.TextIOWrapper(process.stdout, encoding="utf-8"):
         # Eat the trailing new line.
         line = line.rstrip("\n")
 
