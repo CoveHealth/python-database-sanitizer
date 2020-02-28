@@ -48,7 +48,7 @@ PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
 
 INSERT INTO `test` (`id`, `created_at`, `notes`) VALUES \
-(1,'2018-01-01','Test """ + "\u2028".encode()  + b"""data 1'),\
+(1,'2018-01-01','Test \xe2\x80\xa8 data 1'),\
 (2,'2018-01-02','Test data 2'),\
 (3,'2018-01-03','Test data 3');
 
